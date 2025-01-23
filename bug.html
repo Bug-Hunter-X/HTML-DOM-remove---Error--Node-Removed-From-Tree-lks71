@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      document.getElementById("myDiv").style.display = "none";
+      // Missing a setTimeout or similar to allow the element to be removed
+      document.getElementById("myDiv").remove(); //Error: Cannot remove a node after it has been removed from the tree
+    }
+  </script>
+</body>
+</html>
